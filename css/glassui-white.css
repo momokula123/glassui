@@ -31,7 +31,7 @@
   --gu-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
   --gu-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
   --gu-shadow-glow-blue: 0 0 20px rgba(108, 99, 255, 0.3);
-  --gu-shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
+  --gu-shadow-glow-cyan: 0 0 20px rgba(179, 136, 255, 0.3);
   --gu-shadow-glow-green: 0 0 20px rgba(0, 230, 118, 0.3);
   --gu-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
   --gu-font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
@@ -355,9 +355,9 @@ body {
 }
 
 .gu-tag-cyan {
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(179, 136, 255, 0.15);
   color: var(--gu-accent-cyan);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(179, 136, 255, 0.3);
 }
 
 .gu-tag-green {
@@ -423,7 +423,7 @@ body {
 .gu-grade-cyan {
   background: var(--gu-grade-b);
   color: white;
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4);
 }
 
 .gu-grade-orange {

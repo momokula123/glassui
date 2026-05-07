@@ -31,7 +31,7 @@
   --gu-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
   --gu-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
   --gu-shadow-glow-blue: 0 0 20px rgba(108, 99, 255, 0.3);
-  --gu-shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
+  --gu-shadow-glow-cyan: 0 0 20px rgba(179, 136, 255, 0.3);
   --gu-shadow-glow-green: 0 0 20px rgba(0, 230, 118, 0.3);
   --gu-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
   --gu-font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
@@ -284,9 +284,9 @@
 }
 
 .gu-tag-cyan {
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(179, 136, 255, 0.15);
   color: var(--gu-accent-cyan);
-  border-color: rgba(0, 212, 255, 0.25);
+  border-color: rgba(179, 136, 255, 0.25);
 }
 
 .gu-tag-green {
@@ -346,9 +346,9 @@
 }
 
 .gu-grade-b {
-  background: rgba(0, 212, 255, 0.18);
+  background: rgba(179, 136, 255, 0.18);
   color: var(--gu-grade-b);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(179, 136, 255, 0.3);
 }
 
 .gu-grade-c {
@@ -427,7 +427,7 @@
 }
 
 .gu-btn-outline:hover {
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(179, 136, 255, 0.1);
   box-shadow: var(--gu-shadow-glow-cyan);
 }
 
