@@ -410,8 +410,13 @@
 
   SearchBar.prototype._build = function () {
     var self = this;
+    var wrapper = _el("div", { className: "gu-search-bar" });
+    var icon = _el("span", {
+      className: "gu-search-icon",
+      innerHTML: '<i class="fas fa-search"></i>',
+    });
     this._input = _el("input", {
-      className: "gu-input gu-input-search",
+      className: "gu-input",
       type: "text",
       placeholder: this.placeholder,
     });
@@ -421,7 +426,9 @@
         if (self.onSearch) self.onSearch(self._input.value);
       }, self.debounce);
     });
-    this.element = this._input;
+    wrapper.appendChild(icon);
+    wrapper.appendChild(this._input);
+    this.element = wrapper;
   };
 
   SearchBar.prototype.getValue = function () {
