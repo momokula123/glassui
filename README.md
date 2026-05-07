@@ -1,4 +1,4 @@
-# GlassUI ✨
+# GlassUI
 
 现代化的**玻璃拟态（Glassmorphism）UI 组件库**，采用毛玻璃效果与半透明背景设计，支持暗色/亮色双主题切换。
 
@@ -6,20 +6,20 @@
 [![GitHub forks](https://img.shields.io/github/forks/momokula123/glassui?style=flat-square)](https://github.com/momokula123/glassui/network)
 [![GitHub license](https://img.shields.io/github/license/momokula123/glassui?style=flat-square)](https://github.com/momokula123/glassui/blob/main/LICENSE)
 
-## 🌐 在线演示
+## 在线演示
 
-👉 **[点击查看在线演示](https://momokula123.github.io/glassui)** 👈
+[点击查看在线演示](https://momokula123.github.io/glassui)
 
-## 🌟 特性
+## 特性
 
-- 🎨 **玻璃拟态风格** - 毛玻璃效果 + 半透明背景
-- 🌓 **双主题切换** - 深色/浅色主题一键切换
-- ⚡ **轻量无依赖** - 纯原生 JavaScript 实现
-- 📦 **50+ 丰富组件** - 按钮、卡片、表单、导航等
-- ✨ **优雅动画** - CSS3 流畅动效系统
-- 📱 **完美响应式** - 支持桌面/平板/移动端
+- **玻璃拟态风格** - 毛玻璃效果 + 半透明背景
+- **双主题切换** - 深色/浅色主题一键切换
+- **轻量无依赖** - 纯原生 JavaScript 实现
+- **50+ 丰富组件** - 按钮、卡片、表单、导航等
+- **优雅动画** - CSS3 流畅动效系统
+- **完美响应式** - 支持桌面/平板/移动端
 
-## 🚀 快速开始
+## 快速开始
 
 ### 引入文件
 
@@ -35,7 +35,7 @@ var G = GlassUI;
 G.initBody();
 ```
 
-## 📦 核心组件
+## 核心组件
 
 ### 导航栏 Navbar
 
@@ -73,7 +73,7 @@ var nav = new G.Navbar({
 
 ```javascript
 var card = new G.Card({
-  icon: "🎨",
+  icon: '<i class="fas fa-palette"></i>',
   title: "标题",
   subtitle: "副标题",
   description: "卡片描述内容...",
@@ -187,7 +187,7 @@ theme.set("dark");     // 设置深色主题
 theme.set("light");    // 设置浅色主题
 ```
 
-## 🏷️ 其他组件
+## 其他组件
 
 ### 标签 Tag
 
@@ -213,7 +213,7 @@ theme.set("light");    // 设置浅色主题
 <span class="gu-grade gu-grade-red">F</span>
 ```
 
-## 📁 项目结构
+## 项目结构
 
 ```
 glassui/
@@ -225,7 +225,7 @@ glassui/
     └── glassui.js      # JavaScript 组件库
 ```
 
-## 🎨 自定义主题
+## 自定义主题
 
 修改 CSS 变量即可自定义配色：
 
@@ -238,10 +238,10 @@ glassui/
 }
 ```
 
-## 📄 License
+## License
 
 MIT License
 
 ---
 
-Made with ❤️ by [momokula123](https://github.com/momokula123)
+Made by [momokula123](https://github.com/momokula123)

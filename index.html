@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlassUI - 玻璃拟态组件库</title>
   <link rel="stylesheet" href="css/glassui.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     .gu-code-block {
       background: var(--gu-bg-secondary);
@@ -105,10 +106,10 @@
         actions: [
           G.el("button", {
             className: "gu-btn gu-btn-ghost gu-btn-sm",
-            textContent: theme.get() === "dark" ? "☀ 浅色" : "☾ 深色",
+            innerHTML: theme.get() === "dark" ? '<i class="fas fa-sun"></i> 浅色' : '<i class="fas fa-moon"></i> 深色',
             onClick: function () {
               theme.toggle();
-              this.textContent = theme.get() === "dark" ? "☀ 浅色" : "☾ 深色";
+              this.innerHTML = theme.get() === "dark" ? '<i class="fas fa-sun"></i> 浅色' : '<i class="fas fa-moon"></i> 深色';
             }
           })
         ]
@@ -143,12 +144,12 @@
       });
 
       var cardData = [
-        { icon: "�", title: "玻璃拟态风格", subtitle: "GlassUI 核心", description: "采用毛玻璃效果与半透明背景，营造现代感十足的视觉体验。", tags: ["UI设计", "玻璃拟态"], grade: "A" },
-        { icon: "🌓", title: "双主题切换", subtitle: "主题系统", description: "内置深色/浅色双主题，一键切换，所有组件自动适配。", tags: ["主题", "响应式"], grade: "A" },
-        { icon: "⚡", title: "轻量高性能", subtitle: "性能优化", description: "纯原生 JavaScript 实现，无依赖，体积小巧，加载迅速。", tags: ["轻量级", "无依赖"], grade: "A" },
-        { icon: "�", title: "丰富组件库", subtitle: "组件系统", description: "提供按钮、卡片、表单、导航、模态框等 50+ 常用 UI 组件。", tags: ["组件库", "完整"], grade: "A" },
-        { icon: "✨", title: "优雅动画", subtitle: "动画引擎", description: "流畅的 CSS3 动画效果，支持淡入、滑入、缩放等多种动效。", tags: ["动画", "交互"], grade: "B" },
-        { icon: "📱", title: "完美响应式", subtitle: "适配方案", description: "支持桌面端、平板、移动端多设备适配，断点清晰合理。", tags: ["响应式", "移动优先"], grade: "A" }
+        { icon: '<i class="fas fa-layer-group"></i>', title: "玻璃拟态风格", subtitle: "GlassUI 核心", description: "采用毛玻璃效果与半透明背景，营造现代感十足的视觉体验。", tags: ["UI设计", "玻璃拟态"], grade: "A" },
+        { icon: '<i class="fas fa-adjust"></i>', title: "双主题切换", subtitle: "主题系统", description: "内置深色/浅色双主题，一键切换，所有组件自动适配。", tags: ["主题", "响应式"], grade: "A" },
+        { icon: '<i class="fas fa-bolt"></i>', title: "轻量高性能", subtitle: "性能优化", description: "纯原生 JavaScript 实现，无依赖，体积小巧，加载迅速。", tags: ["轻量级", "无依赖"], grade: "A" },
+        { icon: '<i class="fas fa-cubes"></i>', title: "丰富组件库", subtitle: "组件系统", description: "提供按钮、卡片、表单、导航、模态框等 50+ 常用 UI 组件。", tags: ["组件库", "完整"], grade: "A" },
+        { icon: '<i class="fas fa-magic"></i>', title: "优雅动画", subtitle: "动画引擎", description: "流畅的 CSS3 动画效果，支持淡入、滑入、缩放等多种动效。", tags: ["动画", "交互"], grade: "B" },
+        { icon: '<i class="fas fa-mobile-alt"></i>', title: "完美响应式", subtitle: "适配方案", description: "支持桌面端、平板、移动端多设备适配，断点清晰合理。", tags: ["响应式", "移动优先"], grade: "A" }
       ];
 
       var grid = new G.Grid(3);
@@ -397,9 +398,9 @@
 
       var cardDemoRow = G.el("div", { className: "gu-grid gu-grid-3", style: { maxWidth: "900px" } });
       var demoCards = [
-        { icon: "⚡", title: "高性能", subtitle: "极速渲染", description: "优化的动画引擎，流畅的60fps体验", tags: ["性能"], grade: "A" },
-        { icon: "🎨", title: "主题定制", subtitle: "灵活配置", description: "支持暗色/亮色主题，可自定义配色方案", tags: ["主题"], grade: "A" },
-        { icon: "📱", title: "响应式", subtitle: "多端适配", description: "完美支持桌面、平板、移动设备", tags: ["响应式"], grade: "B" }
+        { icon: '<i class="fas fa-tachometer-alt"></i>', title: "高性能", subtitle: "极速渲染", description: "优化的动画引擎，流畅的60fps体验", tags: ["性能"], grade: "A" },
+        { icon: '<i class="fas fa-palette"></i>', title: "主题定制", subtitle: "灵活配置", description: "支持暗色/亮色主题，可自定义配色方案", tags: ["主题"], grade: "A" },
+        { icon: '<i class="fas fa-desktop"></i>', title: "响应式", subtitle: "多端适配", description: "完美支持桌面、平板、移动设备", tags: ["响应式"], grade: "B" }
       ];
       demoCards.forEach(function(d) {
         var c = new G.Card({
@@ -507,7 +508,7 @@
       var themeDemo = G.el("div", { className: "gu-flex gu-gap-md gu-flex-wrap" });
       themeDemo.appendChild(G.el("button", {
         className: "gu-btn gu-btn-primary",
-        textContent: "🌙 切换深色主题",
+        innerHTML: '<i class="fas fa-moon"></i> 切换深色主题',
         onClick: function() {
           theme.set("dark");
           G.Toast("已切换到深色主题", "success");
@@ -515,7 +516,7 @@
       }));
       themeDemo.appendChild(G.el("button", {
         className: "gu-btn gu-btn-outline",
-        textContent: "☀️ 切换浅色主题",
+        innerHTML: '<i class="fas fa-sun"></i> 切换浅色主题',
         onClick: function() {
           theme.set("light");
           G.Toast("已切换到浅色主题", "success");
@@ -523,7 +524,7 @@
       }));
       themeDemo.appendChild(G.el("button", {
         className: "gu-btn gu-btn-ghost",
-        textContent: "🔄 自动切换",
+        innerHTML: '<i class="fas fa-sync-alt"></i> 自动切换',
         onClick: function() {
           theme.toggle();
           G.Toast("当前主题: " + (theme.get() === "dark" ? "深色" : "浅色"), "info");
