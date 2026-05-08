@@ -106,6 +106,24 @@
   --gu-shadow-glow-cyan: 0 0 20px rgba(105, 240, 174, 0.3);
 }
 
+/* 绿色主题 - 覆盖硬编码颜色 */
+[data-gu-theme="green"] .gu-tag-blue {
+  background: rgba(0, 230, 118, 0.15);
+  border-color: rgba(0, 230, 118, 0.25);
+}
+[data-gu-theme="green"] .gu-btn-primary:hover {
+  box-shadow: var(--gu-shadow-md), 0 0 28px rgba(0, 230, 118, 0.45);
+}
+[data-gu-theme="green"] .gu-input:focus,
+[data-gu-theme="green"] .gu-search-bar input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.15);
+}
+[data-gu-theme="green"] .gu-toast-info {
+  background: rgba(0, 230, 118, 0.15);
+  border-color: rgba(0, 230, 118, 0.3);
+  color: #00e676;
+}
+
 *,
 *::before,
 *::after {
