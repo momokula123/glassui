@@ -33,10 +33,10 @@
 <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
 
 <!-- 2. 引入 GlassUI 深色主题样式 -->
-<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
+<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
 
 <!-- 3. 引入 GlassUI 组件库 -->
-<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
+<script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
 
 <script>
   // 4. 初始化
@@ -66,19 +66,45 @@
 
 > **注意**: 使用 `glassui-white.css` 时，页面默认显示为**浅色/白色主题**。可以通过 `theme.set("dark")` 切换到深色模式。
 
+#### 白绿主题（默认白色背景 + 绿色主色调）
+
+```html
+<!-- 1. 引入 Font Awesome 图标库 -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
+
+<!-- 2. 引入 GlassUI 白绿主题样式（白色背景+绿色主色） -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-green.css">
+
+<!-- 3. 引入 GlassUI 组件库 -->
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
+
+<script>
+  // 4. 初始化
+  var G = GlassUI;
+  G.initBody();
+</script>
+```
+
+> **注意**: 使用 `glassui-green.css` 时，页面显示为**白底绿色主色调**。清新自然风格，适合健康、环保、科技类应用。
+
 ### 方式二：本地引入
 
 下载本项目到本地后引用：
 
 ```html
-<!-- 深色主题 -->
+<!-- 深色主题（紫色） -->
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/glassui.css">
 <script src="js/glassui.js"></script>
 
-<!-- 或浅色主题 -->
+<!-- 浅色主题（紫色） -->
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/glassui-white.css">
+<script src="js/glassui.js"></script>
+
+<!-- 白绿主题（绿色） -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/glassui-green.css">
 <script src="js/glassui.js"></script>
 ```
 
@@ -87,7 +113,7 @@
 所有文件均可通过以下地址访问：
 
 ```
-https://momokula123.github.io/Glassui/
+https://momokula123.github.io/glassui/
 ├── css/
 │   ├── glassui.css              # 深色主题样式（默认黑色背景）
 │   ├── glassui-white.css        # 浅色主题样式（默认白色背景）
@@ -329,13 +355,13 @@ theme.set("light");    // 设置浅色主题
   <title>My App - Powered by GlassUI</title>
   
   <!-- 从 CDN 引入 GlassUI -->
-  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
 </head>
 <body>
   <div id="app"></div>
 
-  <script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
+  <script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
   <script>
     var G = GlassUI;
     G.initBody();
