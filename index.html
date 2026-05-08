@@ -536,11 +536,10 @@
             if (links[j].href.indexOf("glassui.css") !== -1 && links[j].href.indexOf("green") === -1) {
               if (!isGreen) {
                 links[j].href = "css/glassui-green.css";
-                document.body.removeAttribute("data-gu-theme");
-                if (typeof theme !== "undefined" && theme.set) { theme.set("light"); }
+                document.documentElement.removeAttribute("data-gu-theme");
               } else {
                 links[j].href = "css/glassui.css";
-                if (typeof theme !== "undefined" && theme.set) { theme.set("dark"); }
+                document.documentElement.setAttribute("data-gu-theme", "dark");
               }
             }
           }
