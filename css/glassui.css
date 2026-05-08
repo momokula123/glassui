@@ -81,6 +81,31 @@
   --gu-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
+[data-gu-theme="green"] {
+  --gu-bg-primary: #ffffff;
+  --gu-bg-secondary: #f5f7fa;
+  --gu-bg-gradient-1: #f5f7fa;
+  --gu-bg-gradient-2: #e8ecf1;
+  --gu-bg-gradient-3: #dde3ec;
+  --gu-glass-bg: rgba(255, 255, 255, 0.6);
+  --gu-glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --gu-glass-bg-active: rgba(255, 255, 255, 0.85);
+  --gu-glass-border: rgba(0, 0, 0, 0.08);
+  --gu-glass-border-hover: rgba(0, 0, 0, 0.15);
+  --gu-text-primary: #1a1a2e;
+  --gu-text-secondary: rgba(0, 0, 0, 0.55);
+  --gu-text-muted: rgba(0, 0, 0, 0.35);
+  --gu-accent-blue: #00e676;
+  --gu-accent-cyan: #69f0ae;
+  --gu-accent-green: #00c853;
+  --gu-accent-purple: #00c853;
+  --gu-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --gu-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --gu-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --gu-shadow-glow-blue: 0 0 20px rgba(0, 230, 118, 0.3);
+  --gu-shadow-glow-cyan: 0 0 20px rgba(105, 240, 174, 0.3);
+}
+
 *,
 *::before,
 *::after {
