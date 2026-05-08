@@ -66,6 +66,44 @@
 
 > **注意**: 使用 `glassui-white.css` 时，页面默认显示为**浅色/白色主题**。可以通过 `theme.set("dark")` 切换到深色模式。
 
+#### 绿色主题（深色背景）
+
+```html
+<!-- 1. 引入 Font Awesome 图标库 -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
+
+<!-- 2. 引入 GlassUI 绿色主题样式（深色背景 + 绿色调） -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-green.css">
+
+<!-- 3. 引入 GlassUI 组件库 -->
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
+
+<script>
+  // 4. 初始化
+  var G = GlassUI;
+  G.initBody();
+</script>
+```
+
+#### 绿色主题（浅色背景）
+
+```html
+<!-- 1. 引入 Font Awesome 图标库 -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
+
+<!-- 2. 引入 GlassUI 绿色浅色主题样式（白色背景 + 绿色调） -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-green-white.css">
+
+<!-- 3. 引入 GlassUI 组件库 -->
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
+
+<script>
+  // 4. 初始化
+  var G = GlassUI;
+  G.initBody();
+</script>
+```
+
 ### 方式二：本地引入
 
 下载本项目到本地后引用：
