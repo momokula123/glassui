@@ -1,9 +1,9 @@
 :root {
-  --gu-bg-primary: #0a0a0a;
-  --gu-bg-secondary: #0a0a0a;
-  --gu-bg-gradient-1: #0a0a0a;
-  --gu-bg-gradient-2: #0a0a0a;
-  --gu-bg-gradient-3: #0a0a0a;
+  --gu-bg-primary: #272727;
+  --gu-bg-secondary: #272727;
+  --gu-bg-gradient-1: #272727;
+  --gu-bg-gradient-2: #272727;
+  --gu-bg-gradient-3: #272727;
   --gu-glass-bg: rgba(255, 255, 255, 0.05);
   --gu-glass-bg-hover: rgba(255, 255, 255, 0.1);
   --gu-glass-bg-active: rgba(255, 255, 255, 0.15);
