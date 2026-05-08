@@ -252,7 +252,7 @@
 
   function Card(options) {
     this.icon = (options && options.icon) || null;
-    this.iconBg = (options && options.iconBg) || "rgba(108,99,255,0.2)";
+    this.iconBg = (options && options.iconBg) || "var(--gu-accent-blue)";
     this.title = (options && options.title) || "";
     this.subtitle = (options && options.subtitle) || "";
     this.description = (options && options.description) || "";
