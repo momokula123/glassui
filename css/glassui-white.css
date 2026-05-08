@@ -14,11 +14,11 @@
   --gu-text-primary: #1a1a2e;
   --gu-text-secondary: rgba(0, 0, 0, 0.55);
   --gu-text-muted: rgba(0, 0, 0, 0.35);
-  --gu-accent-blue: #6c63ff;
-  --gu-accent-cyan: #b388ff;
+  --gu-accent-blue: #00b894;
+  --gu-accent-cyan: #2ecc71;
   --gu-accent-green: #00e676;
   --gu-accent-orange: #ff9100;
-  --gu-accent-purple: #b388ff;
+  --gu-accent-purple: #2ecc71;
   --gu-accent-red: #ff5252;
   --gu-accent-pink: #ff4081;
   --gu-accent-yellow: #ffd740;
@@ -30,8 +30,8 @@
   --gu-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --gu-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
   --gu-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --gu-shadow-glow-blue: 0 0 20px rgba(108, 99, 255, 0.3);
-  --gu-shadow-glow-cyan: 0 0 20px rgba(179, 136, 255, 0.3);
+  --gu-shadow-glow-blue: 0 0 20px rgba(0,184,148, 0.3);
+  --gu-shadow-glow-cyan: 0 0 20px rgba(46,204,113, 0.3);
   --gu-shadow-glow-green: 0 0 20px rgba(0, 230, 118, 0.3);
   --gu-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
   --gu-font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
@@ -285,7 +285,7 @@ body {
 
 .gu-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: var(--gu-shadow-md), 0 0 30px rgba(108, 99, 255, 0.4);
+  box-shadow: var(--gu-shadow-md), 0 0 30px rgba(0,184,148, 0.4);
 }
 
 .gu-btn-ghost {
@@ -349,15 +349,15 @@ body {
 }
 
 .gu-tag-blue {
-  background: rgba(108, 99, 255, 0.15);
+  background: rgba(0,184,148, 0.15);
   color: var(--gu-accent-blue);
-  border: 1px solid rgba(108, 99, 255, 0.3);
+  border: 1px solid rgba(0,184,148, 0.3);
 }
 
 .gu-tag-cyan {
-  background: rgba(179, 136, 255, 0.15);
+  background: rgba(46,204,113, 0.15);
   color: var(--gu-accent-cyan);
-  border: 1px solid rgba(179, 136, 255, 0.3);
+  border: 1px solid rgba(46,204,113, 0.3);
 }
 
 .gu-tag-green {
@@ -373,9 +373,9 @@ body {
 }
 
 .gu-tag-purple {
-  background: rgba(179, 136, 255, 0.15);
+  background: rgba(46,204,113, 0.15);
   color: var(--gu-accent-purple);
-  border: 1px solid rgba(179, 136, 255, 0.3);
+  border: 1px solid rgba(46,204,113, 0.3);
 }
 
 .gu-tag-red {
@@ -423,7 +423,7 @@ body {
 .gu-grade-cyan {
   background: var(--gu-grade-b);
   color: white;
-  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4);
+  box-shadow: 0 0 12px rgba(46,204,113, 0.4);
 }
 
 .gu-grade-orange {
@@ -455,7 +455,7 @@ body {
 
 .gu-input:focus {
   border-color: var(--gu-accent-blue);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(0,184,148, 0.15);
 }
 
 .gu-input::placeholder {
@@ -617,7 +617,7 @@ body {
 
 .gu-search-bar input:focus {
   border-color: var(--gu-accent-blue);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(0,184,148, 0.15);
 }
 
 .gu-search-bar input::placeholder {
@@ -782,9 +782,9 @@ body {
 }
 
 .gu-toast-info {
-  background: rgba(108, 99, 255, 0.15);
+  background: rgba(0,184,148, 0.15);
   color: var(--gu-accent-blue);
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(0,184,148, 0.3);
 }
 
 .gu-section-header {

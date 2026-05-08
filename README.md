@@ -103,11 +103,35 @@ https://momokula123.github.io/Glassui/
 
 ### 主题选择指南
 
+GlassUI 提供两种配色方案，分别对应不同的 Git 分支：
+
+#### 紫色主题（main 分支）- 默认
+
 | CSS 文件 | 默认背景 | 适用场景 |
 |---------|---------|---------|
-| `glassui.css` | 深色 (#0a0a0a) | 暗色风格应用、后台管理系统 |
+| `glassui.css` | 深色 (#272727) | 暗色风格应用、后台管理系统 |
 | `glassui-white.css` | 浅色 (#ffffff) | 亮色风格应用、企业官网、展示页面 |
-| `glassui-v2.css` | 深色+金色 | 特殊场景、高端定制 |
+
+```html
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
+<!-- 或 -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-white.css">
+```
+
+#### 绿色主题（green 分支）
+
+| CSS 文件 | 默认背景 | 适用场景 |
+|---------|---------|---------|
+| `glassui.css` | 深色 (#272727) + 绿色调 | 自然、环保、健康类应用 |
+| `glassui-white.css` | 浅色 (#ffffff) + 绿色调 | 清新、活力风格应用 |
+
+```html
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
+<!-- 或 -->
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-white.css">
+```
+
+> **切换主题**：在 GitHub 仓库页面切换 `main` 或 `green` 分支即可查看不同配色。
 
 ## 核心组件
 
