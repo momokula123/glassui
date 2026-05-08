@@ -8,7 +8,11 @@
 
 ## 在线演示
 
-[点击查看在线演示](https://momokula123.github.io/Glassui)
+### 紫色主题（默认）
+- [紫色 - 深色背景](https://momokula123.github.io/Glassui) | [紫色 - 浅色背景](https://momokula123.github.io/Glassui/index.html)
+
+### 绿色主题
+- [绿色 - 深色背景](https://momokula123.github.io/Glassui/index-green.html) | [绿色 - 浅色背景](https://momokula123.github.io/Glassui/index-green-white.html)
 
 ## 特性
 
@@ -127,9 +131,10 @@
 ```
 https://momokula123.github.io/Glassui/
 ├── css/
-│   ├── glassui.css              # 深色主题样式（默认黑色背景）
-│   ├── glassui-white.css        # 浅色主题样式（默认白色背景）
-│   ├── glassui-v2.css           # 金色主题变体（可选）
+│   ├── glassui.css              # 紫色-深色主题（默认黑色背景）
+│   ├── glassui-white.css        # 紫色-浅色主题（默认白色背景）
+│   ├── glassui-green.css        # 绿色-深色主题（黑色背景 + 绿色调）
+│   ├── glassui-green-white.css  # 绿色-浅色主题（白色背景 + 绿色调）
 │   └── font-awesome.min.css      # 图标库（必引）
 ├── js/
 │   └── glassui.js               # JavaScript 组件（必引）
@@ -141,11 +146,16 @@ https://momokula123.github.io/Glassui/
 
 ### 主题选择指南
 
-| CSS 文件 | 默认背景 | 适用场景 |
-|---------|---------|---------|
-| `glassui.css` | 深色 (#0a0a0a) | 暗色风格应用、后台管理系统 |
-| `glassui-white.css` | 浅色 (#ffffff) | 亮色风格应用、企业官网、展示页面 |
-| `glassui-v2.css` | 深色+金色 | 特殊场景、高端定制 |
+GlassUI 提供 **4 种主题**，通过替换 CSS 文件即可切换：
+
+| CSS 文件 | 背景 | 主色调 | 适用场景 |
+|---------|------|--------|----------|
+| `glassui.css` | 深色 (#272727) | 紫色 | 暗色风格应用、后台管理 |
+| `glassui-white.css` | 浅色 (#ffffff) | 紫色 | 亮色风格、企业官网 |
+| `glassui-green.css` | 深色 (#272727) | 绿色 | 自然/环保/健康类应用 |
+| `glassui-green-white.css` | 浅色 (#ffffff) | 绿色 | 清新/活力风格应用 |
+
+> **使用方式**：只需更换 `<link>` 标签中的 CSS 文件名即可切换主题，JS 代码完全不变。
 
 ## 核心组件
 
