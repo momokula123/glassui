@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlassUI - 绿色主题预览</title>
+  <link rel="stylesheet" href="css/glassui-green.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <style>
+    .gu-code-block {
+      background: var(--gu-bg-secondary);
+      border: 1px solid var(--gu-glass-border);
+      border-radius: var(--radius-md, 12px);
+      margin-top: var(--spacing-md, 16px);
+      overflow: hidden;
+    }
+    .gu-code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--gu-glass-bg);
+      border-bottom: 1px solid var(--gu-glass-border);
+      font-size: 13px;
+      color: var(--text-secondary, var(--gu-text-secondary));
+      font-weight: 500;
+    }
+    .gu-code-header-copy {
+      background: none;
+      border: 1px solid var(--gu-glass-border);
+      color: var(--text-secondary, var(--gu-text-secondary));
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s ease;
+    }
+    .gu-code-header-copy:hover {
+      background: var(--gu-glass-bg-hover);
+      border-color: var(--gu-glass-border-hover);
+      color: var(--text-primary, var(--gu-text-primary));
+    }
+    .gu-code-content {
+      padding: 16px;
+      overflow-x: auto;
+    }
+    .gu-code-content pre {
+      margin: 0;
+      font-family: var(--gu-font-mono, "JetBrains Mono", Consolas, monospace);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-primary, var(--gu-text-primary));
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .gu-code-content .keyword { color: #c678dd; }
+    .gu-code-content .string { color: #98c379; }
+    .gu-code-content .comment { color: #5c6370; font-style: italic; }
+    .gu-code-content .function { color: #61afef; }
+    .gu-code-content .property { color: #e5c07b; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="js/glassui.js"></script>
+  <script>
+    (function () {
+      var G = GlassUI;
+      G.initBody();
+
+      var theme = new G.ThemeManager();
+
+      function createCodeBlock(title, code) {
+        var block = G.el("div", { className: "gu-code-block" });
+        var header = G.el("div", { className: "gu-code-header" });
+        header.appendChild(G.el("span", { textContent: title }));
+        var copyBtn = G.el("button", {
+          className: "gu-code-header-copy",
+          textContent: "复制代码",
+          onClick: function () {
+            navigator.clipboard.writeText(code).then(function () {
+              copyBtn.textContent = "已复制！";
+              setTimeout(function () { copyBtn.textContent = "复制代码"; }, 2000);
+            });
+          }
+        });
+        header.appendChild(copyBtn);
+        block.appendChild(header);
+
+        var content = G.el("div", { className: "gu-code-content" });
+        var pre = G.el("pre", {});
+        pre.textContent = code;
+        content.appendChild(pre);
+        block.appendChild(content);
+        return block;
+      }
+
+      var nav = new G.Navbar({
+        brand: "GlassUI",
+        links: [
+          { label: "组件", href: "#components", active: true },
+          { label: "文档", href: "#docs" },
+          { label: "GitHub", href: "#" }
+        ],
+        actions: [
+          G.el("button", {
+            className: "gu-btn gu-btn-ghost gu-btn-sm",
+            innerHTML: theme.get() === "dark" ? '<i class="fas fa-sun"></i> 浅色' : '<i class="fas fa-moon"></i> 深色',
+            onClick: function () {
+              theme.toggle();
+              this.innerHTML = theme.get() === "dark" ? '<i class="fas fa-sun"></i> 浅色' : '<i class="fas fa-moon"></i> 深色';
+            }
+          })
+        ]
+      });
+
+      var hero = new G.Hero({
+        title: "GlassUI",
+        description: "现代化的玻璃拟态 UI 组件库，支持暗色/亮色双主题切换，提供丰富的组件与优雅的动画效果，即插即用。",
+        actions: [
+          G.el("button", { className: "gu-btn gu-btn-primary", textContent: "快速开始" }),
+          G.el("button", { className: "gu-btn gu-btn-outline", textContent: "查看组件" })
+        ]
+      });
+
+      var search = new G.SearchBar({
+        placeholder: "搜索组件...",
+        onSearch: function (val) {
+          console.log("search:", val);
+        }
+      });
+
+      var tabs = new G.Tabs({
+        items: [
+          { label: "全部" },
+          { label: "卡片" },
+          { label: "按钮" },
+          { label: "表单" }
+        ],
+        onChange: function (i) {
+          console.log("tab:", i);
+        }
+      });
+
+      var cardData = [
+        { icon: '<i class="fas fa-layer-group"></i>', title: "玻璃拟态风格", subtitle: "GlassUI 核心", description: "采用毛玻璃效果与半透明背景，营造现代感十足的视觉体验。", tags: ["UI设计", "玻璃拟态"], grade: "A" },
+        { icon: '<i class="fas fa-adjust"></i>', title: "双主题切换", subtitle: "主题系统", description: "内置深色/浅色双主题，一键切换，所有组件自动适配。", tags: ["主题", "响应式"], grade: "A" },
+        { icon: '<i class="fas fa-bolt"></i>', title: "轻量高性能", subtitle: "性能优化", description: "纯原生 JavaScript 实现，无依赖，体积小巧，加载迅速。", tags: ["轻量级", "无依赖"], grade: "A" },
+        { icon: '<i class="fas fa-cubes"></i>', title: "丰富组件库", subtitle: "组件系统", description: "提供按钮、卡片、表单、导航、模态框等 50+ 常用 UI 组件。", tags: ["组件库", "完整"], grade: "A" },
+        { icon: '<i class="fas fa-magic"></i>', title: "优雅动画", subtitle: "动画引擎", description: "流畅的 CSS3 动画效果，支持淡入、滑入、缩放等多种动效。", tags: ["动画", "交互"], grade: "B" },
+        { icon: '<i class="fas fa-mobile-alt"></i>', title: "完美响应式", subtitle: "适配方案", description: "支持桌面端、平板、移动端多设备适配，断点清晰合理。", tags: ["响应式", "移动优先"], grade: "A" }
+      ];
+
+      var grid = new G.Grid(3);
+      cardData.forEach(function (d, i) {
+        var card = new G.Card({
+          icon: d.icon,
+          title: d.title,
+          subtitle: d.subtitle,
+          description: d.description,
+          tags: d.tags,
+          grade: d.grade,
+          interactive: true,
+          onClick: function () {
+            G.Toast("点击了: " + d.title, "info");
+          }
+        });
+        card.element.classList.add("gu-animate-slide-up", "gu-stagger-" + Math.min(i + 1, 6));
+        card.element.style.opacity = "0";
+        grid.add(card);
+      });
+
+      var statGrid = new G.Grid(4);
+      var stats = [
+        { value: "50+", label: "UI 组件" },
+        { value: "2", label: "主题模式" },
+        { value: "100%", label: "开源免费" },
+        { value: "0", label: "外部依赖" }
+      ];
+      stats.forEach(function (s) {
+        var card = new G.Card({});
+        var stat = new G.Stat(s);
+        card.element.innerHTML = "";
+        card.element.appendChild(stat.element);
+        statGrid.add(card);
+      });
+
+      var app = document.getElementById("app");
+      app.appendChild(nav.element);
+
+      var container = G.el("div", { className: "gu-container" });
+      container.appendChild(hero.element);
+
+      var section1 = G.el("div", { className: "gu-section" });
+      section1.appendChild(statGrid.element);
+      container.appendChild(section1);
+
+      var section2 = G.el("div", { className: "gu-section" });
+      var sectionHeader = G.el("div", { className: "gu-section-header" });
+      var sectionTitle = G.el("div", {});
+      sectionTitle.appendChild(G.el("h2", { className: "gu-section-title", textContent: "核心特性" }));
+      sectionTitle.appendChild(G.el("p", { className: "gu-section-subtitle", textContent: "探索 GlassUI 最受欢迎的组件与功能" }));
+      sectionHeader.appendChild(sectionTitle);
+      sectionHeader.appendChild(search.element);
+      section2.appendChild(sectionHeader);
+      section2.appendChild(tabs.element);
+      section2.appendChild(G.el("div", { className: "gu-mt-lg" }));
+      section2.appendChild(grid.element);
+      container.appendChild(section2);
+
+      var btnSection = G.el("div", { className: "gu-section" });
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title", textContent: "按钮组件" }));
+      var btnRow = G.el("div", { className: "gu-flex gu-gap-md gu-flex-wrap gu-mt-md" });
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-primary", textContent: "主要按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-ghost", textContent: "幽灵按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-outline", textContent: "轮廓按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-danger", textContent: "危险按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-primary gu-btn-sm", textContent: "小按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-primary gu-btn-lg", textContent: "大按钮" }));
+      btnRow.appendChild(G.el("button", { className: "gu-btn gu-btn-primary", disabled: true, textContent: "禁用态" }));
+      btnSection.appendChild(btnRow);
+
+      var btnCode = '<!-- 按钮组件示例 -->\n' +
+        '<button class="gu-btn gu-btn-primary">主要按钮</button>\n' +
+        '<button class="gu-btn gu-btn-ghost">幽灵按钮</button>\n' +
+        '<button class="gu-btn gu-btn-outline">轮廓按钮</button>\n' +
+        '<button class="gu-btn gu-btn-danger">危险按钮</button>\n\n' +
+        '<!-- 尺寸变体 -->\n' +
+        '<button class="gu-btn gu-btn-primary gu-btn-sm">小按钮</button>\n' +
+        '<button class="gu-btn gu-btn-primary gu-btn-lg">大按钮</button>\n\n' +
+        '<!-- 禁用状态 -->\n' +
+        '<button class="gu-btn gu-btn-primary" disabled>禁用态</button>';
+      btnSection.appendChild(createCodeBlock("按钮组件 - HTML代码", btnCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "标签组件" }));
+      var tagRow = G.el("div", { className: "gu-flex gu-gap-sm gu-flex-wrap gu-mt-md" });
+      ["blue", "cyan", "green", "orange", "purple", "red", "pink", "yellow", "ghost"].forEach(function (c) {
+        tagRow.appendChild(G.el("span", { className: "gu-tag gu-tag-" + c, textContent: c }));
+      });
+      btnSection.appendChild(tagRow);
+
+      var tagCode = '<!-- 标签组件示例 -->\n' +
+        '<span class="gu-tag gu-tag-blue">blue</span>\n' +
+        '<span class="gu-tag gu-tag-cyan">cyan</span>\n' +
+        '<span class="gu-tag gu-tag-green">green</span>\n' +
+        '<span class="gu-tag gu-tag-orange">orange</span>\n' +
+        '<span class="gu-tag gu-tag-purple">purple</span>\n' +
+        '<span class="gu-tag gu-tag-red">red</span>\n' +
+        '<span class="gu-tag gu-tag-pink">pink</span>\n' +
+        '<span class="gu-tag gu-tag-yellow">yellow</span>\n' +
+        '<span class="gu-tag gu-tag-ghost">ghost</span>';
+      btnSection.appendChild(createCodeBlock("标签组件 - HTML代码", tagCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "评级组件" }));
+      var gradeRow = G.el("div", { className: "gu-flex gu-gap-sm gu-flex-wrap gu-mt-md" });
+      ["A", "B", "C", "D", "F"].forEach(function (g) {
+        var color = G.GRADE_COLORS[g].toLowerCase();
+        gradeRow.appendChild(G.el("span", { className: "gu-grade gu-grade-" + color, textContent: g }));
+      });
+      btnSection.appendChild(gradeRow);
+
+      var gradeCode = '<!-- 评级组件示例 -->\n' +
+        '<span class="gu-grade gu-grade-green">A</span>\n' +
+        '<span class="gu-grade gu-grade-cyan">B</span>\n' +
+        '<span class="gu-grade gu-grade-orange">C</span>\n' +
+        '<span class="gu-grade gu-grade-red">D</span>\n' +
+        '<span class="gu-grade gu-grade-red">F</span>';
+      btnSection.appendChild(createCodeBlock("评级组件 - HTML代码", gradeCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "模态框 & Toast提示" }));
+      var modalRow = G.el("div", { className: "gu-flex gu-gap-md gu-mt-md" });
+      modalRow.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-primary",
+        textContent: "打开模态框",
+        onClick: function () {
+          new G.Modal({
+            title: "欢迎使用 GlassUI",
+            content: "<p style='color:var(--gu-text-secondary);line-height:1.8'>GlassUI 是一套现代化的玻璃拟态 UI 组件库，支持暗色/亮色双主题切换。提供按钮、卡片、表单、导航、模态框、Toast 等 50+ 丰富组件，轻量无依赖，即插即用。</p>",
+            onClose: function () {
+              G.Toast("模态框已关闭", "info");
+            }
+          }).open();
+        }
+      }));
+      modalRow.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-ghost",
+        textContent: "成功提示",
+        onClick: function () { G.Toast("操作成功完成！", "success"); }
+      }));
+      modalRow.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-ghost",
+        textContent: "错误提示",
+        onClick: function () { G.Toast("操作失败，请重试", "error"); }
+      }));
+      modalRow.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-ghost",
+        textContent: "警告提示",
+        onClick: function () { G.Toast("请注意，这是一条警告", "warning"); }
+      }));
+      btnSection.appendChild(modalRow);
+
+      var modalCode = '// 打开模态框\n' +
+        'new G.Modal({\n' +
+        '  title: "欢迎使用 GlassUI",\n' +
+        '  content: "<p>模态框内容...</p>",\n' +
+        '  onClose: function() {\n' +
+        '    G.Toast("模态框已关闭", "info");\n' +
+        '  }\n' +
+        '}).open();\n\n' +
+        '// Toast 提示\n' +
+        'G.Toast("操作成功完成！", "success");\n' +
+        'G.Toast("操作失败，请重试", "error");\n' +
+        'G.Toast("请注意，这是一条警告", "warning");';
+      btnSection.appendChild(createCodeBlock("模态框 & Toast - JavaScript代码", modalCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "表单组件" }));
+      var formCol = G.el("div", { className: "gu-flex-col gu-gap-md gu-mt-md", style: { maxWidth: "480px" } });
+      formCol.appendChild(G.el("input", { className: "gu-input", type: "text", placeholder: "普通输入框" }));
+      formCol.appendChild(G.el("input", { className: "gu-input gu-input-search", type: "text", placeholder: "搜索输入框" }));
+      formCol.appendChild(G.el("select", { className: "gu-input gu-select", innerHTML: '<option>选项一</option><option>选项二</option><option>选项三</option>' }));
+      formCol.appendChild(G.el("textarea", { className: "gu-input", placeholder: "多行文本...", style: { minHeight: "100px", resize: "vertical" } }));
+      btnSection.appendChild(formCol);
+
+      var formCode = '<!-- 表单组件示例 -->\n\n' +
+        '<!-- 普通输入框 -->\n' +
+        '<input class="gu-input" type="text" placeholder="普通输入框">\n\n' +
+        '<!-- 搜索输入框 -->\n' +
+        '<input class="gu-input gu-input-search" type="text" placeholder="搜索输入框">\n\n' +
+        '<!-- 下拉选择 -->\n' +
+        '<select class="gu-input gu-select">\n' +
+        '  <option>选项一</option>\n' +
+        '  <option>选项二</option>\n' +
+        '  <option>选项三</option>\n' +
+        '</select>\n\n' +
+        '<!-- 多行文本 -->\n' +
+        '<textarea class="gu-input" placeholder="多行文本..." style="min-height:100px;resize:vertical"></textarea>';
+      btnSection.appendChild(createCodeBlock("表单组件 - HTML代码", formCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "导航栏组件" }));
+
+      var navDemo = G.el("div", { className: "gu-nav", style: { position: "relative", borderRadius: "12px", overflow: "hidden" } });
+      var navBrand = G.el("a", { className: "gu-nav-brand", textContent: "GlassUI" });
+      var navLinks = G.el("div", { className: "gu-nav-links" });
+      ["首页", "组件", "文档", "关于"].forEach(function(link, i) {
+        var a = G.el("a", { href: "#", textContent: link });
+        if (i === 1) a.classList.add("active");
+        navLinks.appendChild(a);
+      });
+      var navActions = G.el("div", { className: "gu-nav-actions" });
+      navActions.appendChild(G.el("button", { className: "gu-btn gu-btn-ghost gu-btn-sm", textContent: "登录" }));
+      navDemo.appendChild(navBrand);
+      navDemo.appendChild(navLinks);
+      navDemo.appendChild(navActions);
+      btnSection.appendChild(navDemo);
+
+      var navCode = '// 导航栏组件 JavaScript\n' +
+        'var nav = new G.Navbar({\n' +
+        '  brand: "GlassUI",\n' +
+        '  links: [\n' +
+        '    { label: "首页", href: "#" },\n' +
+        '    { label: "组件", href: "#components", active: true },\n' +
+        '    { label: "文档", href: "#docs" },\n' +
+        '    { label: "关于", href: "#" }\n' +
+        '  ],\n' +
+        '  actions: [\n' +
+        '    G.el("button", {\n' +
+        '      className: "gu-btn gu-btn-ghost gu-btn-sm",\n' +
+        '      textContent: "登录"\n' +
+        '    })\n' +
+        '  ]\n' +
+        '});';
+      btnSection.appendChild(createCodeBlock("导航栏组件 - JavaScript代码", navCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "Hero英雄区组件" }));
+
+      var heroDemo = G.el("div", { className: "gu-hero gu-card", style: { padding: "40px 24px", textAlign: "center" } });
+      heroDemo.appendChild(G.el("h1", { className: "gu-hero-title", textContent: "GlassUI 组件库" }));
+      heroDemo.appendChild(G.el("p", { className: "gu-hero-desc", textContent: "现代化的玻璃拟态设计系统，支持暗色/亮色双主题切换，提供丰富的UI组件。" }));
+      var heroActions = G.el("div", { className: "gu-hero-actions" });
+      heroActions.appendChild(G.el("button", { className: "gu-btn gu-btn-primary", textContent: "立即开始" }));
+      heroActions.appendChild(G.el("button", { className: "gu-btn gu-btn-outline", textContent: "查看文档" }));
+      heroDemo.appendChild(heroActions);
+      btnSection.appendChild(heroDemo);
+
+      var heroCode = '// Hero 英雄区组件\n' +
+        'var hero = new G.Hero({\n' +
+        '  title: "GlassUI 组件库",\n' +
+        '  description: "现代化的玻璃拟态设计系统...",\n' +
+        '  actions: [\n' +
+        '    G.el("button", { className: "gu-btn gu-btn-primary", textContent: "立即开始" }),\n' +
+        '    G.el("button", { className: "gu-btn gu-btn-outline", textContent: "查看文档" })\n' +
+        '  ]\n' +
+        '});';
+      btnSection.appendChild(createCodeBlock("Hero英雄区组件 - JavaScript代码", heroCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "卡片组件" }));
+
+      var cardDemoRow = G.el("div", { className: "gu-grid gu-grid-3", style: { maxWidth: "900px" } });
+      var demoCards = [
+        { icon: '<i class="fas fa-tachometer-alt"></i>', title: "高性能", subtitle: "极速渲染", description: "优化的动画引擎，流畅的60fps体验", tags: ["性能"], grade: "A" },
+        { icon: '<i class="fas fa-palette"></i>', title: "主题定制", subtitle: "灵活配置", description: "支持暗色/亮色主题，可自定义配色方案", tags: ["主题"], grade: "A" },
+        { icon: '<i class="fas fa-desktop"></i>', title: "响应式", subtitle: "多端适配", description: "完美支持桌面、平板、移动设备", tags: ["响应式"], grade: "B" }
+      ];
+      demoCards.forEach(function(d) {
+        var c = new G.Card({
+          icon: d.icon,
+          title: d.title,
+          subtitle: d.subtitle,
+          description: d.description,
+          tags: d.tags,
+          grade: d.grade,
+          interactive: true
+        });
+        cardDemoRow.appendChild(c.element);
+      });
+      btnSection.appendChild(cardDemoRow);
+
+      var cardCode = '// 卡片组件\n' +
+        'var card = new G.Card({\n' +
+        '  icon: "⚡",           // 图标\n' +
+        '  title: "高性能",     // 标题\n' +
+        '  subtitle: "极速渲染", // 副标题\n' +
+        '  description: "优化的动画引擎...", // 描述\n' +
+        '  tags: ["性能"],     // 标签数组\n' +
+        '  grade: "A",         // 评级 A-F\n' +
+        '  interactive: true   // 可点击交互\n' +
+        '});';
+      btnSection.appendChild(createCodeBlock("卡片组件 - JavaScript代码", cardCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "网格布局 & 统计数据" }));
+
+      var statDemoGrid = G.el("div", { className: "gu-grid gu-grid-4", style: { maxWidth: "800px" } });
+      var demoStats = [
+        { value: "50+", label: "组件数量" },
+        { value: "100%", label: "开源免费" },
+        { value: "<1KB", label: "核心体积" },
+        { value: "∞", label: "可能性" }
+      ];
+      demoStats.forEach(function(s) {
+        var sc = new G.Card({});
+        var st = new G.Stat(s);
+        sc.element.innerHTML = "";
+        sc.element.appendChild(st.element);
+        statDemoGrid.appendChild(sc.element);
+      });
+      btnSection.appendChild(statDemoGrid);
+
+      var gridStatCode = '// 网格布局\n' +
+        'var grid = new G.Grid(4); // 4列网格\n' +
+        '\n' +
+        '// 统计数据组件\n' +
+        'var stat = new G.Stat({\n' +
+        '  value: "50+",       // 数值\n' +
+        '  label: "组件数量"   // 标签\n' +
+        '});\n' +
+        '\n' +
+        '// 将统计放入卡片\n' +
+        'var card = new G.Card({});\n' +
+        'card.element.innerHTML = "";\n' +
+        'card.element.appendChild(stat.element);\n' +
+        'grid.add(card);';
+      btnSection.appendChild(createCodeBlock("网格布局 & 统计数据 - JavaScript代码", gridStatCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "搜索栏 & 标签页" }));
+
+      var searchDemo = new G.SearchBar({ placeholder: "输入关键词搜索..." });
+      btnSection.appendChild(searchDemo.element);
+
+      var tabsDemo = new G.Tabs({
+        items: [
+          { label: "React" },
+          { label: "Vue" },
+          { label: "Angular" },
+          { label: "Svelte" }
+        ],
+        onChange: function(i) {
+          G.Toast("选择了: " + ["React", "Vue", "Angular", "Svelte"][i], "info");
+        }
+      });
+      btnSection.appendChild(G.el("div", { className: "gu-mt-md" }));
+      btnSection.appendChild(tabsDemo.element);
+
+      var searchTabsCode = '// 搜索栏组件\n' +
+        'var search = new G.SearchBar({\n' +
+        '  placeholder: "输入关键词搜索...",\n' +
+        '  onSearch: function(val) {\n' +
+        '    console.log("搜索:", val);\n' +
+        '  }\n' +
+        '});\n' +
+        '\n' +
+        '// 标签页组件\n' +
+        'var tabs = new G.Tabs({\n' +
+        '  items: [\n' +
+        '    { label: "React" },\n' +
+        '    { label: "Vue" },\n' +
+        '    { label: "Angular" },\n' +
+        '    { label: "Svelte" }\n' +
+        '  ],\n' +
+        '  onChange: function(index) {\n' +
+        '    console.log("当前标签:", index);\n' +
+        '  }\n' +
+        '});';
+      btnSection.appendChild(createCodeBlock("搜索栏 & 标签页 - JavaScript代码", searchTabsCode));
+
+      btnSection.appendChild(G.el("h2", { className: "gu-section-title gu-mt-lg", textContent: "主题切换" }));
+
+      var themeDemo = G.el("div", { className: "gu-flex gu-gap-md gu-flex-wrap" });
+      themeDemo.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-primary",
+        innerHTML: '<i class="fas fa-moon"></i> 切换深色主题',
+        onClick: function() {
+          theme.set("dark");
+          G.Toast("已切换到深色主题", "success");
+        }
+      }));
+      themeDemo.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-outline",
+        innerHTML: '<i class="fas fa-sun"></i> 切换浅色主题',
+        onClick: function() {
+          theme.set("light");
+          G.Toast("已切换到浅色主题", "success");
+        }
+      }));
+      themeDemo.appendChild(G.el("button", {
+        className: "gu-btn gu-btn-ghost",
+        innerHTML: '<i class="fas fa-sync-alt"></i> 自动切换',
+        onClick: function() {
+          theme.toggle();
+          G.Toast("当前主题: " + (theme.get() === "dark" ? "深色" : "浅色"), "info");
+        }
+      }));
+      btnSection.appendChild(themeDemo);
+
+      var themeCode = '// 主题管理器\n' +
+        'var theme = new G.ThemeManager();\n' +
+        '\n' +
+        '// 设置深色主题\n' +
+        'theme.set("dark");\n' +
+        '\n' +
+        '// 设置浅色主题\n' +
+        'theme.set("light");\n' +
+        '\n' +
+        '// 自动切换（toggle）\n' +
+        'theme.toggle();\n' +
+        '\n' +
+        '// 获取当前主题\n' +
+        'theme.get(); // 返回 "dark" 或 "light"';
+      btnSection.appendChild(createCodeBlock("主题切换 - JavaScript代码", themeCode));
+
+      container.appendChild(btnSection);
+
+      var footer = G.el("div", { className: "gu-section gu-text-center" });
+      footer.appendChild(G.el("hr", { className: "gu-divider" }));
+      footer.appendChild(G.el("p", {
+        className: "gu-text-secondary gu-text-sm gu-mt-md",
+        textContent: "GlassUI · 现代化玻璃拟态 UI 组件库 · 开源免费使用"
+      }));
+      container.appendChild(footer);
+
+      app.appendChild(container);
+    })();
+  </script>
+</body>
+</html>
