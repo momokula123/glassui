@@ -537,8 +537,10 @@
               if (!isGreen) {
                 links[j].href = "css/glassui-green.css";
                 document.body.removeAttribute("data-gu-theme");
+                if (typeof theme !== "undefined" && theme.set) { theme.set("light"); }
               } else {
                 links[j].href = "css/glassui.css";
+                if (typeof theme !== "undefined" && theme.set) { theme.set("dark"); }
               }
             }
           }
