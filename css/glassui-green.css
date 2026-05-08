@@ -18,7 +18,7 @@
   --gu-accent-cyan: #69f0ae;
   --gu-accent-green: #00c853;
   --gu-accent-orange: #ff9100;
-  --gu-accent-purple: #6c5ce7;
+  --gu-accent-purple: #00c853;
   --gu-accent-red: #ff5252;
   --gu-accent-pink: #ff4081;
   --gu-accent-yellow: #ffd740;
@@ -373,9 +373,9 @@ body {
 }
 
 .gu-tag-purple {
-  background: rgba(108, 92, 231, 0.15);
+  background: rgba(0, 200, 83, 0.15);
   color: var(--gu-accent-purple);
-  border: 1px solid rgba(108, 92, 231, 0.3);
+  border: 1px solid rgba(0, 200, 83, 0.3);
 }
 
 .gu-tag-red {
