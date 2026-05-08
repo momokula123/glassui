@@ -252,7 +252,7 @@
 
   function Card(options) {
     this.icon = (options && options.icon) || null;
-    this.iconBg = (options && options.iconBg) || "var(--gu-accent-blue)";
+    this.iconBg = (options && options.iconBg) || "rgba(108,99,255,0.2)";
     this.title = (options && options.title) || "";
     this.subtitle = (options && options.subtitle) || "";
     this.description = (options && options.description) || "";
@@ -492,7 +492,7 @@
 
     var toggle = _el("button", {
       className: "gu-nav-mobile-toggle",
-      innerHTML: '<i class="fas fa-bars"></i>',
+      textContent: "\u2630",
       onClick: function () {
         var links = self.element.querySelector(".gu-nav-links");
         if (links) links.classList.toggle("open");
