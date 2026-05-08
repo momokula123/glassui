@@ -492,7 +492,7 @@
 
     var toggle = _el("button", {
       className: "gu-nav-mobile-toggle",
-      textContent: "\u2630",
+      innerHTML: '<i class="fas fa-bars"></i>',
       onClick: function () {
         var links = self.element.querySelector(".gu-nav-links");
         if (links) links.classList.toggle("open");
