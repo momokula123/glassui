@@ -33,10 +33,10 @@
 <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
 
 <!-- 2. 引入 GlassUI 深色主题样式 -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
 
 <!-- 3. 引入 GlassUI 组件库 -->
-<script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
 
 <script>
   // 4. 初始化
@@ -49,13 +49,13 @@
 
 ```html
 <!-- 1. 引入 Font Awesome 图标库 -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
 
 <!-- 2. 引入 GlassUI 浅色主题样式（白色背景） -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui-white.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-white.css">
 
 <!-- 3. 引入 GlassUI 组件库 -->
-<script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
 
 <script>
   // 4. 初始化
@@ -87,7 +87,7 @@
 所有文件均可通过以下地址访问：
 
 ```
-https://momokula123.github.io/glassui/
+https://momokula123.github.io/Glassui/
 ├── css/
 │   ├── glassui.css              # 深色主题样式（默认黑色背景）
 │   ├── glassui-white.css        # 浅色主题样式（默认白色背景）
@@ -329,13 +329,13 @@ theme.set("light");    // 设置浅色主题
   <title>My App - Powered by GlassUI</title>
   
   <!-- 从 CDN 引入 GlassUI -->
-  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
 </head>
 <body>
   <div id="app"></div>
 
-  <script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+  <script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
   <script>
     var G = GlassUI;
     G.initBody();
