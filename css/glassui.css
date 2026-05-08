@@ -198,6 +198,8 @@
   justify-content: center;
   font-size: var(--gu-font-size-xl);
   flex-shrink: 0;
+  background: linear-gradient(135deg, var(--gu-accent-blue), var(--gu-accent-cyan));
+  color: white;
 }
 
 .gu-card-title {

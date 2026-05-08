@@ -276,7 +276,6 @@
       if (this.icon) {
         var iconEl = _el("div", {
           className: "gu-card-icon",
-          style: { background: this.iconBg },
           innerHTML: this.icon,
         });
         header.appendChild(iconEl);
