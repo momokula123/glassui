@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlassUI - 玻璃拟态组件库</title>
-  <link rel="stylesheet" href="css/glassui.css" />
+  <link rel="stylesheet" href="css/glassui.css" id="theme-css-purple" />
+  <link rel="stylesheet" href="css/glassui-green.css" id="theme-css-green" disabled />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
   <style>
     .gu-code-block {
@@ -527,32 +528,30 @@
         style: { background: "#00e676", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "9999px", cursor: "pointer", fontSize: "14px", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: "8px", transition: "all 0.15s ease" },
         innerHTML: '<i class="fas fa-leaf"></i> 切换绿色主题',
         onClick: function() {
-          var links = document.querySelectorAll('link[rel="stylesheet"]');
-          var isGreen = false;
-          for (var i = 0; i < links.length; i++) {
-            if (links[i].href.indexOf("glassui-green") !== -1) { isGreen = true; break; }
-          }
-          for (var j = 0; j < links.length; j++) {
-            if (links[j].href.indexOf("glassui.css") !== -1 && links[j].href.indexOf("green") === -1) {
-              if (!isGreen) {
-                links[j].href = "css/glassui-green.css";
-                document.documentElement.removeAttribute("data-gu-theme");
-              } else {
-                links[j].href = "css/glassui.css";
-                document.documentElement.setAttribute("data-gu-theme", "dark");
-              }
-            }
-          }
+          var purple = document.getElementById("theme-css-purple");
+          var green = document.getElementById("theme-css-green");
           var btn = document.getElementById("theme-toggle-btn");
-          if (btn) {
-            if (!isGreen) {
-              btn.style.background = "#6c63ff";
-              btn.innerHTML = '<i class="fas fa-palette"></i> 切换紫色主题';
-              G.Toast("已切换到绿色主题", "success");
-            } else {
-              btn.style.background = "#00e676";
-              btn.innerHTML = '<i class="fas fa-leaf"></i> 切换绿色主题';
+          if (purple && green) {
+            if (!green.disabled) {
+              // 当前是绿色 → 切回紫色
+              green.disabled = true;
+              purple.disabled = false;
+              document.documentElement.setAttribute("data-gu-theme", "dark");
+              if (btn) {
+                btn.style.background = "#00e676";
+                btn.innerHTML = '<i class="fas fa-leaf"></i> 切换绿色主题';
+              }
               G.Toast("已切换到紫色主题", "success");
+            } else {
+              // 当前是紫色 → 切换绿色
+              purple.disabled = true;
+              green.disabled = false;
+              document.documentElement.removeAttribute("data-gu-theme");
+              if (btn) {
+                btn.style.background = "#6c63ff";
+                btn.innerHTML = '<i class="fas fa-palette"></i> 切换紫色主题';
+              }
+              G.Toast("已切换到绿色主题", "success");
             }
           }
         }
