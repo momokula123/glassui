@@ -2,13 +2,13 @@
 
 现代化的**玻璃拟态（Glassmorphism）UI 组件库**，采用毛玻璃效果与半透明背景设计，支持暗色/亮色双主题切换。
 
-[![GitHub stars](https://img.shields.io/github/stars/momokula123/glassui?style=flat-square)](https://github.com/momokula123/glassui/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/momokula123/glassui?style=flat-square)](https://github.com/momokula123/glassui/network)
-[![GitHub license](https://img.shields.io/github/license/momokula123/glassui?style=flat-square)](https://github.com/momokula123/glassui/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/momokula123/Glassui?style=flat-square)](https://github.com/momokula123/Glassui/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/momokula123/Glassui?style=flat-square)](https://github.com/momokula123/Glassui/network)
+[![GitHub license](https://img.shields.io/github/license/momokula123/Glassui?style=flat-square)](https://github.com/momokula123/Glassui/blob/main/LICENSE)
 
 ## 在线演示
 
-[点击查看在线演示](https://momokula123.github.io/glassui)
+[点击查看在线演示](https://momokula123.github.io/Glassui)
 
 ## 特性
 
@@ -30,13 +30,13 @@
 
 ```html
 <!-- 1. 引入 Font Awesome 图标库 -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
 
 <!-- 2. 引入 GlassUI 深色主题样式 -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
 
 <!-- 3. 引入 GlassUI 组件库 -->
-<script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
 
 <script>
   // 4. 初始化
@@ -49,13 +49,13 @@
 
 ```html
 <!-- 1. 引入 Font Awesome 图标库 -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
 
 <!-- 2. 引入 GlassUI 浅色主题样式（白色背景） -->
-<link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui-white.css">
+<link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui-white.css">
 
 <!-- 3. 引入 GlassUI 组件库 -->
-<script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+<script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
 
 <script>
   // 4. 初始化
@@ -87,9 +87,10 @@
 所有文件均可通过以下地址访问：
 
 ```
-https://momokula123.github.io/glassui/
+https://momokula123.github.io/Glassui/
 ├── css/
-│   ├── glassui.css              # 主样式文件（必引）
+│   ├── glassui.css              # 深色主题样式（默认黑色背景）
+│   ├── glassui-white.css        # 浅色主题样式（默认白色背景）
 │   ├── glassui-v2.css           # 金色主题变体（可选）
 │   └── font-awesome.min.css      # 图标库（必引）
 ├── js/
@@ -99,6 +100,14 @@ https://momokula123.github.io/glassui/
     ├── fa-regular-400.woff2
     └── fa-brands-400.woff2
 ```
+
+### 主题选择指南
+
+| CSS 文件 | 默认背景 | 适用场景 |
+|---------|---------|---------|
+| `glassui.css` | 深色 (#0a0a0a) | 暗色风格应用、后台管理系统 |
+| `glassui-white.css` | 浅色 (#ffffff) | 亮色风格应用、企业官网、展示页面 |
+| `glassui-v2.css` | 深色+金色 | 特殊场景、高端定制 |
 
 ## 核心组件
 
@@ -320,13 +329,13 @@ theme.set("light");    // 设置浅色主题
   <title>My App - Powered by GlassUI</title>
   
   <!-- 从 CDN 引入 GlassUI -->
-  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://momokula123.github.io/glassui/css/glassui.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://momokula123.github.io/Glassui/css/glassui.css">
 </head>
 <body>
   <div id="app"></div>
 
-  <script src="https://momokula123.github.io/glassui/js/glassui.js"></script>
+  <script src="https://momokula123.github.io/Glassui/js/glassui.js"></script>
   <script>
     var G = GlassUI;
     G.initBody();
@@ -374,7 +383,8 @@ theme.set("light");    // 设置浅色主题
 glassui/
 ├── index.html          # 完整演示页面
 ├── css/
-│   ├── glassui.css     # 主样式文件
+│   ├── glassui.css     # 深色主题样式（默认黑色）
+│   ├── glassui-white.css  # 浅色主题样式（默认白色）
 │   ├── glassui-v2.css  # 金色主题变体
 │   └── font-awesome.min.css  # Font Awesome 图标库
 ├── js/
